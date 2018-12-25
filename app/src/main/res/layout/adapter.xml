@@ -12,7 +12,7 @@
         android:padding="@dimen/icon_padding"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:src="@raw/KakaoTalk_20181224_185257600"
+        android:src="@raw/boog"
         />
     <LinearLayout
         android:orientation="vertical"

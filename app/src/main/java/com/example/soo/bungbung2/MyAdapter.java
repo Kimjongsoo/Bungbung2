@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,7 +30,7 @@ public class MyAdapter extends BaseAdapter {
     static Double xx;
     static Double yy;
     private ArrayList<Contents> mItems = new ArrayList<Contents>();
-
+    int i=0;
     public MyAdapter(Context context, int resource, ArrayList<Contents> items) {
         mContext = context;
         mItems = items;
@@ -73,6 +74,32 @@ public class MyAdapter extends BaseAdapter {
 //        // Set Text 02
 //        TextView price = (TextView) convertView.findViewById(R.id.price);
 //        price.setText("학번,번호: "+mItems.get(position).price);
+        Button location=(Button)convertView.findViewById(R.id.button2);
+        final Button rent=(Button)convertView.findViewById(R.id.button5);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(mContext,Location.class);
+                mContext.getApplicationContext().startActivity(intent);
+            }
+        });
+        rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+    if(i%2==0){
+        rent.setText("반납하기");
+    }
+    else {
+        rent.setText("대여하기");
+    }
+i++;
+
+
+            }
+        });
+
+
         TextView gps=(TextView) convertView.findViewById(R.id.gpsvalue);
         gps.setText(mItems.get(position).x);
         TextView gps2=(TextView) convertView.findViewById(R.id.gpsvalue2);

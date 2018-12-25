@@ -39,7 +39,7 @@ public class GetData2 extends GetRequest {
         if (jsonString == null)
             return;
         ArrayList<Contents> arrayList = getArrayListFromJSONString(jsonString);
-
+        MyAdapter adapter =new MyAdapter(activity, R.layout.adapter,arrayList);
     }
 
 
