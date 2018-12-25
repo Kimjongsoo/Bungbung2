@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-            case R.id.location:
-                Intent intent1=new Intent(getApplicationContext(),Location.class);
-                startActivity(intent1);
-                return true;
+//            case R.id.location:
+//                Intent intent1=new Intent(getApplicationContext(),Location.class);
+//                startActivity(intent1);
+//                return true;
 
 
 

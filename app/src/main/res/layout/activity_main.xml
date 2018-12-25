@@ -25,19 +25,9 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/values"
-            android:text="대여"
+            android:text="대여&amp;반납"
             android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@drawable/values"
-            android:text="반납"
-            android:textSize="30sp" />
     </LinearLayout>
 
     <VideoView

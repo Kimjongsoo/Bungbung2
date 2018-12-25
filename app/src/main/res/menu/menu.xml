@@ -4,10 +4,10 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home_black_24dp"
         app:showAsAction="always|withText"/>
-    <item
-        android:id="@+id/location"
-        android:title="   Location  "
-        app:showAsAction="always|withText"/>
+    <!--<item-->
+        <!--android:id="@+id/location"-->
+        <!--android:title="   Location  "-->
+        <!--app:showAsAction="always|withText"/>-->
 
     <item
         android:id="@+id/login"

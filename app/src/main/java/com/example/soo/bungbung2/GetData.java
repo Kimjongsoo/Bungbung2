@@ -3,6 +3,7 @@ package com.example.soo.bungbung2;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -44,6 +45,8 @@ public class GetData extends GetRequest {
 //                android.R.layout.simple_list_item_1,
 //                arrayList.toArray());
         Log.e("hi", "why1");
+//        View header;
+//        header= activity.getLayoutInflater().inflate(R.layout.activity_rent,null,false);
         MyAdapter adapter =new MyAdapter(activity, R.layout.adapter,arrayList);
         ListView txtList = activity.findViewById(R.id.listview);
         txtList.setAdapter(adapter);

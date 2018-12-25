@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Camera;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.ActivityCompat;
@@ -11,8 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +31,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -54,6 +61,23 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         new GetData2(Location.this).execute();
+         View header;
+        header= getLayoutInflater().inflate(R.layout.activity_rent,null,false);
+        ListView txtList = (ListView)header.findViewById(R.id.listview);
+//        txtList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Adapter adapter = adapterView.getAdapter();
+//                JSONObject postDataParam = new JSONObject();
+//                try {
+//                    postDataParam.put("id", ((Contents)adapter.getItem(i)).id);
+//                } catch (JSONException e) {
+//                    Log.e("listview", "JSONEXception");
+//                }
+//
+//
+//            }
+//        });
 //        x=Double.valueOf(intent.getStringExtra("x"));
 //        y=Double.valueOf(intent.getStringExtra("y"));
         setContentView(R.layout.activity_location);
@@ -66,20 +90,20 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
         } else {
             getLastLocation();
         }
-        Button btn=(Button)findViewById(R.id.button);
-        final EditText txt=(EditText)findViewById(R.id.edit_text) ;
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                if (txt.getText().equals("한성대입구역")) {
+//        Button btn=(Button)findViewById(R.id.button);
+////        final EditText txt=(EditText)findViewById(R.id.edit_text) ;
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                if (txt.getText().equals("한성대입구역")) {
+////
+////                    Toast.makeText(getApplicationContext(),"한성대입구역을 선택하셨습니다", Toast.LENGTH_SHORT).show();
+////                }
+//                getAddress();
 //
-//                    Toast.makeText(getApplicationContext(),"한성대입구역을 선택하셨습니다", Toast.LENGTH_SHORT).show();
-//                }
-                getAddress();
-
-
-            }
-        });
+//
+//            }
+//        });
 
     }
     private boolean checkLocationPermissions() {
@@ -178,32 +202,42 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
 //        googleMap.addMarker(new MarkerOptions().position(hansung).title("한성대학교"));
 //        // move the camera
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(hansung));
+        addressTextView = (TextView) findViewById(R.id.result);
+        addressTextView.setText("(x="+String.valueOf(xx)+", y="+String.valueOf(yy)+")");
+
+
+        mGoogleMap.addMarker(
+                new MarkerOptions().
+                        position(hansung).title("1번킥보드")
+        );
     }
     //******************************************주소얻기******************************
     private void getAddress() {
-        addressTextView = (TextView) findViewById(R.id.result);
-        EditText address = (EditText) findViewById(R.id.edit_text);
-        try {
-            Geocoder geocoder = new Geocoder(this, Locale.KOREA);
-            List<Address> addresses = geocoder.getFromLocationName(address.getText().toString(),1);
-            if (addresses.size() >0) {
-                Address bestResult = (Address) addresses.get(0);
 
-//                addressTextView.setText(String.format("[ %s , %s ]",
-//                        bestResult.getLatitude(),
-//                        bestResult.getLongitude()));
-//                addressTextView.setText("("+xvalue+", "+yvalue+")");
-                LatLng location = new LatLng(bestResult.getLatitude(),bestResult.getLongitude());
-                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,15));
+
+
+//        EditText address = (EditText) findViewById(R.id.edit_text);
+//        try {
+//            Geocoder geocoder = new Geocoder(this, Locale.KOREA);
+//            List<Address> addresses = geocoder.getFromLocationName(address.getText().toString(),1);
+//            if (addresses.size() >0) {
+//                Address bestResult = (Address) addresses.get(0);
+//
+////                addressTextView.setText(String.format("[ %s , %s ]",
+////                        bestResult.getLatitude(),
+////                        bestResult.getLongitude()));
+////                addressTextView.setText("("+xvalue+", "+yvalue+")");
+//                LatLng location = new LatLng(xx,yy);
+//                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,15));
 //                mGoogleMap.addMarker(
 //                        new MarkerOptions().
 //                                position(location).
 //                                title(address.getText().toString()));
-            }
-        } catch (IOException e) {
-            Log.e(getClass().toString(),"Failed in using Geocoder.", e);
-            return;
-        }
+//            }
+//        } catch (IOException e) {
+//            Log.e(getClass().toString(),"Failed in using Geocoder.", e);
+//            return;
+//        }
 
     }
 }
