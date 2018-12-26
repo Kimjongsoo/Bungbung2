@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 public class Rent extends AppCompatActivity {
 private View header;
+//사용중인 기기들과 그 정보들 나올 수 있게 listview로 띄우고 대여하기,반납하기 버튼 , 기기위치 보이는 창으로 들어가는 버튼이 있다.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

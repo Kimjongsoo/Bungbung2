@@ -16,7 +16,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+//로그인창이 뜨게 도와주는 클라스.
         EditText email=(EditText)findViewById(R.id.email);
         EditText password=(EditText)findViewById(R.id.password);
         Button Lgn=(Button)findViewById(R.id.btnLogin);

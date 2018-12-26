@@ -18,7 +18,7 @@ public class GetDataLgn extends GetRequest{
     public GetDataLgn(Activity activity) {
         super(activity);
     }
-
+//유저 id password받아와 같으면 Login success 틀리면 Login failed출력
     @Override
     protected void onPreExecute() {
         //EditText server =  activity.findViewById(R.id.server);

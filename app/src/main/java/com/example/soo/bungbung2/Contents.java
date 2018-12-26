@@ -4,7 +4,7 @@ public class Contents {
     String id;
     String x;
     String y;
-
+//데이터 베이스에 들어갈 형식을 입력한다.
 
 
 

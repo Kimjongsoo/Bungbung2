@@ -49,7 +49,8 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
     android.location.Location mCurrentLocation;
     GoogleMap mGoogleMap;
     TextView addressTextView;
-    //a마지막 geocoder 이용해서 input이용해서 이름에 매칭되는 addresses리스트 리턴 그중에서 첫번째get0을 가져와 bestReult가져오고 위도경도 얻어옴
+    //위도경도값을 넘겨받아 지도상으로 이동하고 확대하여 마커표시가 되게 도와주는 클라스
+
 //그결과값 바탕으로 마커로 표시하고 그위치로 지도를 이동
 
     Intent intent = getIntent();
@@ -153,10 +154,10 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
                 Log.i("ddd","fonud");
                 if (location != null) {
                     mCurrentLocation = location;
-                    Toast.makeText(getApplicationContext(),
-                            "위도"+mCurrentLocation.getLatitude(),
-                            Toast.LENGTH_SHORT)
-                            .show();
+//                    Toast.makeText(getApplicationContext(),
+////                            "위도"+mCurrentLocation.getLatitude(),
+////                            Toast.LENGTH_SHORT)
+////                            .show();
                     //  updateUI();
                     LatLng newLocation = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
                     if (mGoogleMap != null)
@@ -197,6 +198,7 @@ public class Location extends AppCompatActivity  implements OnMapReadyCallback {
 
 //
 //        // move the camera
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(hansung));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hansung,15));
 
 //        googleMap.addMarker(new MarkerOptions().position(hansung).title("한성대학교"));

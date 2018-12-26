@@ -16,7 +16,7 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
     final static String TAG = "AndroidNodeJS";
     Activity activity;
     URL url;
-
+//Get방식으로 데이터를 받아온다.
     public GetRequest(Activity activity) {
         this.activity = activity;
     }

@@ -5,7 +5,7 @@ public class Logininfo {
     String fullName;
     String email;
     String password;
-
+//로그인데이터에 들어가는 형식지정
 
 
     public Logininfo(String id, String fullName, String email, String password) {

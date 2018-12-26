@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * Created by Kwanwoo on 2016-09-05.
  */
-public class MyAdapter extends BaseAdapter {
+public class MyAdapter extends BaseAdapter {//listView에 들어가는 형식을 지정해주고 x,y값을 Location클라스로 넘겨주게 된다.
     private Context mContext;
     private int mResource;
     Bitmap bitmap;

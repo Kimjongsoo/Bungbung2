@@ -10,7 +10,7 @@ public class InsertLoginData extends PostRequest {
     public InsertLoginData(Activity activity) {
         super(activity);
     }
-
+//로그인 데이터를 넣을 수 있게 도와준다.
     @Override
     protected void onPreExecute() {
 //        EditText server = activity.findViewById(R.id.server);

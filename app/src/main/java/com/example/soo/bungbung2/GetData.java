@@ -14,9 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by kwanwoo on 2017. 10. 17..
- */
+
 
 public class GetData extends GetRequest {
     public GetData(Activity activity) {
@@ -29,7 +27,7 @@ public class GetData extends GetRequest {
         //EditText server =  activity.findViewById(R.id.server);
         String serverURLStr = "http://13.125.246.86:3000/api/getdata";
         try {
-            url = new URL(serverURLStr);  // 여기서 AWS 주소를 넣어야 한다.
+            url = new URL(serverURLStr);  // 여기서 AWS 주소및 경로를 넣어야 한다.
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -47,7 +45,7 @@ public class GetData extends GetRequest {
         Log.e("hi", "why1");
 //        View header;
 //        header= activity.getLayoutInflater().inflate(R.layout.activity_rent,null,false);
-        MyAdapter adapter =new MyAdapter(activity, R.layout.adapter,arrayList);
+        MyAdapter adapter =new MyAdapter(activity, R.layout.adapter,arrayList);//데이터 베이스의 데이터를 받아서 Myadapter의 형식으로 출력해준다.
         ListView txtList = activity.findViewById(R.id.listview);
         txtList.setAdapter(adapter);
         txtList.setDividerHeight(10);
@@ -68,11 +66,11 @@ public class GetData extends GetRequest {
                 Contents bung = new Contents(jsonObject.getString("_id"),
                         jsonObject.getString("x"),
                         jsonObject.getString("y")
-
+//json형식의 위도경도값인 x,y를 받아온다
 );
                 Log.e("hi", jsonObject.getString("x"));
                 if(i==jsonArray.length()-1) {
-
+//가장 마지막 값을 가져와 넣어준다.
 
 //                    startActivityForResult(intent, request_code);
                     output.add(bung);

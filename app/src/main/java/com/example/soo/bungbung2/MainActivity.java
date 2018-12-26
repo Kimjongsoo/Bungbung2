@@ -14,7 +14,7 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
-
+//붕붕이 안내 비디오와 함께 대여버튼으로 갈 수 있게 도와주는 클라스
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

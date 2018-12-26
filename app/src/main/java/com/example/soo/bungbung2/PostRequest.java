@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class PostRequest extends AsyncTask<JSONObject, Void, String> {
+public class PostRequest extends AsyncTask<JSONObject, Void, String> {//Post방식으로 데이터를 넣어주게 된다.
     Activity activity;
     URL url;
 

@@ -15,6 +15,7 @@ public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //회원가입 창으로 회원가입을 하면 그 값을 데이터 베이스에 넣어주게 된다.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         final EditText rgrfullname=(EditText)findViewById(R.id.Rgrfullname);
